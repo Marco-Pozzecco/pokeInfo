@@ -2,6 +2,7 @@ import { PokemonClient, NamedAPIResource } from "pokenode-ts";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./components/search-bar/SearchBar";
 import PokeDisplay from "./layout/poke-display/PokeDisplay";
+import "./index.scss"
 
 function App() {
   const [pokedex, setPokedex] = useState<NamedAPIResource[] | null>(null);
@@ -24,12 +25,11 @@ function App() {
   return (
     <div className="pokedex-app">
       <SearchBar />
-      <div></div>
       {pokedex?.map((pokemon) => {
         return <PokeDisplay name={pokemon.name}/>;
       })}
       <div className="pokedex-pages">
-
+        
       </div>
     </div>
   );

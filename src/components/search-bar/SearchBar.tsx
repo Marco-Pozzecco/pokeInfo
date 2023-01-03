@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// Style
+import "./SearchBar.scss"
 
 export default function SearchBar() {
   const [searchParam, setSearchParam] = useState<string>("");
