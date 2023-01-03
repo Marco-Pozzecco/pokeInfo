@@ -7,6 +7,7 @@ import { MainClient, Pokemon, PokemonClient } from "pokenode-ts";
 // Style
 import "./PokeDisplay.scss"
 import PokedexIndex from "../../components/podedex-index/PokedexIndex";
+import PokemonStats from "../../components/pokemon-stats/PokemonStats";
 
 export default function PokeDisplay(props: { name: string }) {
     const [pokemon, setPokemon] = useState<Pokemon>();
@@ -35,6 +36,9 @@ export default function PokeDisplay(props: { name: string }) {
                 <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
             </div>
             <div className="poke-name">{props.name}</div>
+            <div className="poke-stats">
+                <PokemonStats stats={pokemon?.stats} />
+            </div>
         </div>
     )
 }
