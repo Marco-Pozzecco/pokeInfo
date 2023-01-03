@@ -6,6 +6,7 @@ import SpriteViewer from "../../components/sprite-viewer/SpriteViewer";
 import { MainClient, Pokemon, PokemonClient } from "pokenode-ts";
 // Style
 import "./PokeDisplay.scss"
+import PokedexIndex from "../../components/podedex-index/PokedexIndex";
 
 export default function PokeDisplay(props: { name: string }) {
     const [pokemon, setPokemon] = useState<Pokemon>();
@@ -22,9 +23,12 @@ export default function PokeDisplay(props: { name: string }) {
 
     return (
         <div className="poke-display">
+            <div className="poke-index">
+                <PokedexIndex pokedex_i={pokemon?.id} />
+            </div>
             <div className="poke-types">
-                {pokemon?.types.map( type => {
-                    return <TypeLabel type_name={type} />
+                {pokemon?.types.map( (type, i) => {
+                    return <TypeLabel type_name={type} key={`${type.slot}-${i}`}/>
                 })}
             </div>
             <div className="poke-sprite">
