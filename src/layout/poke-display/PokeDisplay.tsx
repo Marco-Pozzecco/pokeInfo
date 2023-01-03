@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 // Components
 import TypeLabel from "../../components/labels/TypeLabel";
 import SpriteViewer from "../../components/sprite-viewer/SpriteViewer";
+import PokedexIndex from "../../components/podedex-index/PokedexIndex";
+import PokemonStats from "../../components/pokemon-stats/PokemonStats";
 // Pokenode
 import { MainClient, Pokemon, PokemonClient } from "pokenode-ts";
 // Style
 import "./PokeDisplay.scss"
-import PokedexIndex from "../../components/podedex-index/PokedexIndex";
-import PokemonStats from "../../components/pokemon-stats/PokemonStats";
 
 export default function PokeDisplay(props: { name: string }) {
     const [pokemon, setPokemon] = useState<Pokemon>();

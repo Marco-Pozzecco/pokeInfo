@@ -25,11 +25,13 @@ function App() {
   return (
     <div className="pokedex-app">
       <SearchBar />
-      {pokedex?.map((pokemon) => {
-        return <PokeDisplay name={pokemon.name}/>;
-      })}
+      <div className="pokedex-entries">
+        {pokedex?.map((pokemon) => {
+          return <PokeDisplay name={pokemon.name}/>;
+        })}
+      </div>
       <div className="pokedex-pages">
-        
+
       </div>
     </div>
   );

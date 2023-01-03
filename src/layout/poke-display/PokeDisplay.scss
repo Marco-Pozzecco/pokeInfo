@@ -1,6 +1,24 @@
 .poke-display {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
+    border: 1px solid gray;
     
+
+    width: 100%;
+    max-width: 1200px;
+
+    .poke-index {
+
+    }
+
+    .poke-types {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    
+    }
 }

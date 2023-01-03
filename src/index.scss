@@ -9,4 +9,25 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    
+    .pokedex-entries {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        width: 100%;
+    
+        &:first-child {
+            border-radius: 16px;
+        }
+    
+        &:last-child {
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+    }
 }
+
+
+
