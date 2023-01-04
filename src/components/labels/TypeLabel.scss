@@ -22,10 +22,10 @@
     margin-right: 2px;
 }
 
-@each $element in $elements {
-    .type-#{list.nth($element, 1)} {
-        background-color: #{list.nth($element, 2)};
-        border: 2px solid #{color.scale(list.nth($element, 2), $lightness: -40%, $saturation: 20%)};
+@each $element, $color in $elements {
+    .type-#{$element} {
+        background-color: #{$color};
+        border: 2px solid #{color.scale($color, $lightness: -40%, $saturation: 20%)};
         color: white;
     }
 }
