@@ -6,6 +6,8 @@ import PokedexIndex from "../../components/podedex-index/PokedexIndex";
 import PokemonStats from "../../components/pokemon-stats/PokemonStats";
 // Pokenode
 import { MainClient, Pokemon, PokemonClient } from "pokenode-ts";
+// Utils
+import { capitalize } from "../../utils/utils";
 // Style
 import "./PokeDisplay.scss"
 
@@ -32,10 +34,10 @@ export default function PokeDisplay(props: { name: string }) {
                     return <TypeLabel type_name={type} key={`${type.slot}-${i}`}/>
                 })}
             </div>
-            <div className="poke-sprite">
+            <div className="poke-pokemon">
                 <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
+                <div className="poke-name">{capitalize(props.name)}</div>
             </div>
-            <div className="poke-name">{props.name}</div>
             <div className="poke-stats">
                 <PokemonStats stats={pokemon?.stats} />
             </div>

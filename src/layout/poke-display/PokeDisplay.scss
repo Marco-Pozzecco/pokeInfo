@@ -2,16 +2,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     border: 1px solid gray;
     
 
-    width: 100%;
-    max-width: 1200px;
+    width: 60%;
+    
 
     .poke-index {
-        
+
     }
 
     .poke-types {
@@ -20,5 +20,11 @@
         align-items: center;
         justify-content: center;
     
+    }
+
+    .poke-pokemon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 }
