@@ -2,17 +2,19 @@ import { PokemonClient, NamedAPIResource } from "pokenode-ts";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./components/search-bar/SearchBar";
 import PokeDisplay from "./layout/poke-display/PokeDisplay";
-import "./index.scss"
+import "./index.scss";
 
 function App() {
+  const [searchParam, setSearchParam] = useState<string>("");
   const [pokedex, setPokedex] = useState<NamedAPIResource[] | null>(null);
   const [pageIndex, setPageIndex] = useState<number>(1);
-  const [resultsLimit, setResultsLimit] = useState<number>(10);
+  const [resultsLimit, setResultsLimit] = useState<number>(100);
 
   const api = new PokemonClient();
 
   async function handlePokemonSpeciesReq() {
-    await api.listPokemonSpecies(resultsLimit * (pageIndex - 1), resultsLimit)
+    await api
+      .listPokemonSpecies(resultsLimit * (pageIndex - 1), resultsLimit)
       .then((res) => {
         setPokedex(res.results);
       });
@@ -24,15 +26,13 @@ function App() {
 
   return (
     <div className="pokedex-app">
-      <SearchBar />
+      <SearchBar searchParam={searchParam} setSearchParam={setSearchParam} />
       <div className="pokedex-entries">
         {pokedex?.map((pokemon) => {
-          return <PokeDisplay name={pokemon.name}/>;
+          return <PokeDisplay name={pokemon.name} />;
         })}
       </div>
-      <div className="pokedex-pages">
-
-      </div>
+      <div className="pokedex-pages"></div>
     </div>
   );
 }
