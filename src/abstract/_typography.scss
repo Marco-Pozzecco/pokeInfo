@@ -1,0 +1,38 @@
+@use "sass:list";
+@use "sass:map";
+@import "./colors";
+@import "./theme";
+
+$weigths: (400, 500, 600);
+$sizes: (
+    ("smaller", 8px),
+    ("small", 10px),
+    ("regular", 12px),
+    ("paragraph", 16px),
+    ("title", 24px),
+    ("bigtitle", 32px)
+
+);
+
+// .text-small-400, .text-title-600 etc.
+@each $weigth in $weigths {
+    @each $label, $size in $sizes {
+        .text-#{$label}-#{$weigth} {
+            font-size: $size;
+            font-weight: $weigth;
+        }
+    }
+}
+
+// text colors
+.t-muted {
+    color: var(--text-muted);
+}
+
+.t-normal {
+    color: var(--text);
+}
+
+.t-accent {
+    color: var(--text-accent);
+}

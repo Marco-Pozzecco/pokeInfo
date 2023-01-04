@@ -1,10 +1,12 @@
+@use "sass:map";
+@import "./colors";
+
 .dark-theme {
     // Text
-    --text: ;
-    --text-accent: ;
-    --text-accent-alt: ;
-    --text-muted: ;
-    --text-muted-alt: ;
+    --text: map.get($text, "dark", "normal");
+    --text-accent: map.get($text, "dark", "accent");
+    --text-muted: map.get($text, "dark", "muted");
+
 
     // Background
     --background-primary: ;
