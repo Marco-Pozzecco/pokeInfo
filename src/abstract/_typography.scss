@@ -15,7 +15,7 @@ $sizes: (
 
 );
 
-// .text-small-400, .text-title-600 etc.
+// .text-small-400, .text-info-600 etc.
 @each $weigth in $weigths {
     @each $label, $size in $sizes {
         .text-#{$label}-#{$weigth} {
