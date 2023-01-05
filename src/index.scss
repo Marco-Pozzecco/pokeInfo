@@ -40,6 +40,16 @@ html, body {
             border-bottom: 1px solid var(--border-primary);
         }
     }
+
+    .pokedex-pages {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        svg {
+            margin: 0 4px;
+        }
+    }
 }
 
 
