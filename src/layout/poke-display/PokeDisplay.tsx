@@ -54,6 +54,9 @@ export default function PokeDisplay(props: { name: string }) {
         <h1 className="text-small-600 t-muted">BASE STATS</h1>
         <PokemonStats stats={pokemon?.stats} />
       </div>
+      <div className="poke-info-container" style={{display: "none"}}>
+
+      </div>
     </div>
   ) : null;
 }

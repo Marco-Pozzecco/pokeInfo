@@ -52,7 +52,11 @@ function App() {
                 return <PokeDisplay name={pokemon.name} />;
               })}
       </div>
-      <div className="pokedex-pages"></div>
+      <div className="pokedex-pages">
+        <div>
+          
+        </div>
+      </div>
     </div>
   );
 }
