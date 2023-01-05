@@ -17,7 +17,7 @@ function App() {
   
 
   const [pageIndex, setPageIndex] = useState<number>(1);
-  const [resultsLimit, setResultsLimit] = useState<number>(10);
+  const [resultsLimit, setResultsLimit] = useState<number>(15);
 
   const api = new PokemonClient();
 
@@ -54,7 +54,10 @@ function App() {
     const filteredPokedex = pokedex?.filter((pokemon) =>
       pokemon.name.startsWith(searchParam.toLocaleLowerCase())
     );
-    if (filteredPokedex) setFilteredPokedex(filteredPokedex);
+    if (filteredPokedex) {
+      setPageIndex(1);
+      setFilteredPokedex(filteredPokedex);
+    }
   }
 
   useEffect(() => {
@@ -71,12 +74,12 @@ function App() {
       <div className="pokedex-entries">
         {filteredPokedex
           ? filteredPokedex
-              ?.slice(resultsLimit * (pageIndex - 1), resultsLimit)
+              ?.slice(resultsLimit * (pageIndex - 1), resultsLimit * pageIndex)
               .map((pokemon) => {
                 return <PokeDisplay name={pokemon.name} />;
               })
           : pokedex
-              ?.slice(resultsLimit * (pageIndex - 1), resultsLimit)
+              ?.slice(resultsLimit * (pageIndex - 1), resultsLimit * pageIndex)
               .map((pokemon) => {
                 return <PokeDisplay name={pokemon.name} />;
               })}
