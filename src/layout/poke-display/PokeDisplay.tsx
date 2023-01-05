@@ -22,7 +22,6 @@ export default function PokeDisplay(props: { name: string }) {
 
     const result = await api.pokemon.getPokemonByName(name).then((res) => res);
     setPokemon(result);
-    console.log(result)
   }
 
   useEffect(() => {

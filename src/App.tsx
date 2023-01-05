@@ -15,9 +15,8 @@ function App() {
   const [pokedex, setPokedex] = useState<NamedAPIResource[] | null>(null);
   const [filteredPokedex, setFilteredPokedex] = useState<NamedAPIResource[] | null>(null);
   
-
   const [pageIndex, setPageIndex] = useState<number>(1);
-  const [resultsLimit, setResultsLimit] = useState<number>(15);
+  const [resultsLimit, setResultsLimit] = useState<number>(100);
 
   const api = new PokemonClient();
 
@@ -32,20 +31,25 @@ function App() {
     if (items === undefined) {
       return 0;
     }
+    console.log(Math.floor(items / resultsPerPage) + 1)
     return Math.floor(items / resultsPerPage) + 1;
   }
 
-  function navigatePages(index: number, direction: "forward" | "backward") {
+  function navigatePages(index: number, direction: "forward" | "backward", max?: number) {
     if (direction === "backward") {
-      // Riduci l'indice di 1
-      const newIndex = index - 1;
-      // Setta lo stato
-      setPageIndex(newIndex);
+      if (index > 1) {
+        // Riduci l'indice di 1
+        const newIndex = index - 1;
+        // Setta lo stato
+        setPageIndex(newIndex);
+      }
     } else if (direction === "forward") {
-      // Aumenta l'indice
-      const newIndex = index + 1;
-      // Setta lo stato
-      setPageIndex(newIndex);
+      if (max && index < max) {
+        // Incrementa l'indice
+        const newIndex = index + 1;
+        // Setta lo stato
+        setPageIndex(newIndex);
+      }
     }
 
   }
@@ -85,18 +89,24 @@ function App() {
               })}
       </div>
       <div className="pokedex-pages">
-        <div className="backward-btn" onClick={(e: React.MouseEvent<HTMLElement>) => {
-          navigatePages(pageIndex, "backward")}
-        }>
-          <HiBackward fill={`var(--text-muted)`}  />
+        <div 
+          className="backward-btn" 
+          style={{borderColor: `${ pageIndex == 1 ? "var(--text-muted)" : "var(--text-accent)"}`}}
+          onClick={(e: React.MouseEvent<HTMLElement>) => {
+            navigatePages(pageIndex, "backward")}
+          }>
+          <HiBackward fill={`${ pageIndex == 1 ? "var(--text-muted)" : "var(--text-accent)"}`} />
         </div>
         <h1 className="text-navigation-500 t-normal">
           Page {pageIndex} of {remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length)}
         </h1>
-        <div className="backward-btn" onClick={(e: React.MouseEvent<HTMLElement>) => {
-          navigatePages(pageIndex, "forward")}
-        }>
-          <HiForward fill={`var(--text-accent)`} />
+        <div 
+          className="forward-btn" 
+          style={{borderColor: `${ pageIndex === remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length) ? "var(--text-muted)" : "var(--text-accent)"}`}}
+          onClick={(e: React.MouseEvent<HTMLElement>) => {
+            navigatePages(pageIndex, "forward", remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length))}
+          }>
+          <HiForward fill={`${ pageIndex === remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length) ? "var(--text-muted)" : "var(--text-accent)"}`} />
         </div>
       </div>
     </div>
