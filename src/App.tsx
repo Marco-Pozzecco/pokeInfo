@@ -11,11 +11,11 @@ import "./abstract/_typography.scss";
 
 function App() {
   const [searchParam, setSearchParam] = useState<string>("");
+
   const [pokedex, setPokedex] = useState<NamedAPIResource[] | null>(null);
-  const [filteredPokedex, setFilteredPokedex] = useState<
-    NamedAPIResource[] | null
-  >(null);
-  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [filteredPokedex, setFilteredPokedex] = useState<NamedAPIResource[] | null>(null);
+  
+
   const [pageIndex, setPageIndex] = useState<number>(1);
   const [resultsLimit, setResultsLimit] = useState<number>(10);
 
@@ -88,7 +88,7 @@ function App() {
           <HiBackward fill={`var(--text-muted)`}  />
         </div>
         <h1 className="text-navigation-500 t-normal">
-          Page {pageIndex} of {remainingPages(resultsLimit, pokedex?.length)}
+          Page {pageIndex} of {remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length)}
         </h1>
         <div className="backward-btn" onClick={(e: React.MouseEvent<HTMLElement>) => {
           navigatePages(pageIndex, "forward")}
