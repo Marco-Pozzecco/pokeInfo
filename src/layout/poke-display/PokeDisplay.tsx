@@ -5,7 +5,7 @@ import SpriteViewer from "../../components/sprite-viewer/SpriteViewer";
 import PokedexIndex from "../../components/podedex-index/PokedexIndex";
 import PokemonStats from "../../components/pokemon-stats/PokemonStats";
 // Pokenode
-import { MainClient, Pokemon, PokemonClient, PokemonSpecies } from "pokenode-ts";
+import { MainClient, Pokemon, PokemonClient, PokemonSpecies, PokemonType } from "pokenode-ts";
 // Utils
 import { capitalize } from "../../utils/utils";
 // Style
@@ -14,6 +14,7 @@ import "../../abstract/_typography.scss";
 
 export default function PokeDisplay(props: { name: string }) {
   const [pokemon, setPokemon] = useState<Pokemon>();
+  const [pokemonType, setPokemonType] = useState<PokemonType | null>(null);
 
   const api = new MainClient();
 
@@ -46,7 +47,7 @@ export default function PokeDisplay(props: { name: string }) {
         <h1 className="text-small-600 t-muted">POKEMON</h1>
         <div className="poke-sprite">
           <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
-          <div className="poke-name text-pokemon-name-500">{capitalize(pokemon.species.name)}</div>
+          <div className="poke-name text-pokemon-name-500 t-normal">{capitalize(pokemon.species.name)}</div>
         </div>
       </div>
       <div className="poke-stats">

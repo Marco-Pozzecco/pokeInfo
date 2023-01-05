@@ -18,13 +18,12 @@
     --text-muted: #{map.get($text, "dark", "muted")};
 
     // Background
-    --background-primary: ;
-    --background-primary-alt: ;
-    --background-secondary: ;
-    --background-secondary-alt: ;
-    --background-gradient: ;
+    --background-primary: #424C5A;
+    --background-primary-alt: #343C47;
+    --background-secondary: #373841;
+    --background-secondary-alt: #4B4B4B;
 
-    --border-regular: gray;
+    --border-primary: #546072;
 }
 
 // .light-theme {}

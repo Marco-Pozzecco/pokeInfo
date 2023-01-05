@@ -20,7 +20,13 @@
         
 
         border-radius: 16px;
-        border: 2px solid var(--border-regular);
+        border: 2px solid var(--border-primary);
+        background-color: var(--background-primary);
+        color: var(--text);
+
+        &::placeholder {
+            color: var(--text-muted);
+        }
 
         &:focus-visible {
             outline: 0px;

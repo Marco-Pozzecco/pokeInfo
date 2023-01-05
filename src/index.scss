@@ -1,5 +1,9 @@
+@import "./abstract/theme";
+
 html, body {
-    width: 100%;
+    background-color: var(--background-secondary);
+    height: 100%;
+    margin: 0;
 }
 
 .pokedex-app {
@@ -33,7 +37,7 @@ html, body {
         & > .poke-display:last-of-type {
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid var(--border-primary);
         }
     }
 }
