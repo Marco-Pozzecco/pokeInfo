@@ -1,3 +1,5 @@
+@import "../../abstract/theme";
+
 .poke-search {
     margin: 50px 20px;
 
@@ -8,19 +10,17 @@
     width: 100%;
 
     .poke-search-input {
+        font-family: pokemon-font;
         height: 40px;
         
         width: 80%;
         max-width: 500px;
         
         padding: 5px 10px;
-
-        // Cambiare font-size una volta impostata la tipografia
-        font-size: 16px;
+        
 
         border-radius: 16px;
-        // cambiare il colore una volta impostato i colori del tema
-        border: 1px solid green;
+        border: 2px solid var(--border-regular);
 
         &:focus-visible {
             outline: 0px;

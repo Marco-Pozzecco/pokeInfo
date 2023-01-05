@@ -13,13 +13,13 @@ export default function SearchBar(props: {
   }
 
   return (
-    <div className="poke-search">
+    <div className="poke-search ">
       <input
         onChange={handleOnChange}
         value={props.searchParam}
         placeholder="Search pokemon.."
         type="text"
-        className="poke-search-input"
+        className="poke-search-input text-search-500"
       />
     </div>
   );
