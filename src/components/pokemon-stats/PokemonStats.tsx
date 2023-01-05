@@ -14,7 +14,7 @@ export default function PokemonStats (props: {stats: PokemonStat[] | undefined})
     }
 
     return (
-        <div className="pokemon-total-stats">
+        <div className="pokemon-total-stats text-info-500">
             {totalStats(props.stats)}
         </div>
     )

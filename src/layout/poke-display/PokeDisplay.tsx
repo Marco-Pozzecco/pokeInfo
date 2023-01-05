@@ -31,7 +31,7 @@ export default function PokeDisplay(props: { name: string }) {
   return pokemon ? (
     <div className="poke-display">
       <div className="poke-index">
-        <h1 className="text-small-600 t-muted">POKEDEX N°</h1>
+        <h1 className="text-small-600 t-muted">POKEDEX N</h1>
         <PokedexIndex pokedex_i={pokemon?.id} />
       </div>
       <div className="poke-types">
@@ -46,7 +46,7 @@ export default function PokeDisplay(props: { name: string }) {
         <h1 className="text-small-600 t-muted">POKEMON</h1>
         <div className="poke-sprite">
           <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
-          <div className="poke-name">{capitalize(pokemon.species.name)}</div>
+          <div className="poke-name text-pokemon-name-500">{capitalize(pokemon.species.name)}</div>
         </div>
       </div>
       <div className="poke-stats">

@@ -1,11 +1,21 @@
 @use "sass:map";
 @import "./colors";
 
+@font-face {
+    font-family: pokemon-font;
+    src: url("../../resources/font/PKMN-Mystery-Dungeon.ttf");
+
+}
+
+:root {
+    font-family: pokemon-font;
+}
+
 .dark-theme {
     // Text
-    --text: map.get($text, "dark", "normal");
-    --text-accent: map.get($text, "dark", "accent");
-    --text-muted: map.get($text, "dark", "muted");
+    --text: #{map.get($text, "dark", "normal")};
+    --text-accent: #{map.get($text, "dark", "accent")};
+    --text-muted: #{map.get($text, "dark", "muted")};
 
 
     // Background
