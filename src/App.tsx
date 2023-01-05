@@ -16,7 +16,7 @@ function App() {
   const [filteredPokedex, setFilteredPokedex] = useState<NamedAPIResource[] | null>(null);
   
   const [pageIndex, setPageIndex] = useState<number>(1);
-  const [resultsLimit, setResultsLimit] = useState<number>(100);
+  const [resultsLimit, setResultsLimit] = useState<number>(15);
 
   const api = new PokemonClient();
 
@@ -31,7 +31,6 @@ function App() {
     if (items === undefined) {
       return 0;
     }
-    console.log(Math.floor(items / resultsPerPage) + 1)
     return Math.floor(items / resultsPerPage) + 1;
   }
 
@@ -97,7 +96,7 @@ function App() {
           }>
           <HiBackward fill={`${ pageIndex == 1 ? "var(--text-muted)" : "var(--text-accent)"}`} />
         </div>
-        <h1 className="text-navigation-500 t-normal">
+        <h1 className="text-navigation-500 t-normal disable-select">
           Page {pageIndex} of {remainingPages(resultsLimit, filteredPokedex ? filteredPokedex.length : pokedex?.length)}
         </h1>
         <div 
