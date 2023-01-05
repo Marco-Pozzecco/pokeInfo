@@ -1,0 +1,19 @@
+.sprite-viewer {
+    // border: 2px solid gray;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .sprite {
+        height: 40px;
+        position: relative;
+        bottom: 0px;
+        left: 0;
+    }
+}

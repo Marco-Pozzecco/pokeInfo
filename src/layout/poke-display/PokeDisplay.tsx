@@ -21,6 +21,7 @@ export default function PokeDisplay(props: { name: string }) {
 
     const result = await api.pokemon.getPokemonByName(name).then((res) => res);
     setPokemon(result);
+    console.log(result)
   }
 
   useEffect(() => {
@@ -42,8 +43,11 @@ export default function PokeDisplay(props: { name: string }) {
         </div>
       </div>
       <div className="poke-pokemon">
-        <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
-        <div className="poke-name">{capitalize(pokemon.species.name)}</div>
+        <h1 className="text-small-600 t-muted">POKEMON</h1>
+        <div className="poke-sprite">
+          <SpriteViewer sprite_url={String(pokemon?.sprites.front_default)} />
+          <div className="poke-name">{capitalize(pokemon.species.name)}</div>
+        </div>
       </div>
       <div className="poke-stats">
         <h1 className="text-small-600 t-muted">BASE STATS</h1>

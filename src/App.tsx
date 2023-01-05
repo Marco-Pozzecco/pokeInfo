@@ -25,7 +25,6 @@ function App() {
     const filteredPokedex = pokedex?.filter((pokemon) =>
       pokemon.name.startsWith(searchParam.toLocaleLowerCase())
     );
-    console.log(filteredPokedex);
     if (filteredPokedex) setFilteredPokedex(filteredPokedex);
   }
 

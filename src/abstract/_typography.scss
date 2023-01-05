@@ -20,6 +20,7 @@ $sizes: (
         .text-#{$label}-#{$weigth} {
             font-size: $size;
             font-weight: $weigth;
+            margin: 0;
         }
     }
 }
